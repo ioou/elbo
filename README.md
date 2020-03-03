@@ -1,4 +1,4 @@
-[gitee](https://gitee.com/ioou/vaeelbo)
+
 # elbo
 用模型预测的z的后验分布去近似实际的后验分布。两个版本都涉及到z的先验后验相似的问题。
 
@@ -9,17 +9,17 @@ min_{q(z)} KL(q(z) ||p(z|x) ) =E_{q(z)}[log\frac{q(z)\cdot p(x)}{p(z|x)\cdot p(x
  = E_{q(z)}[ -logp(x|z) + log\frac{q(z) }{p(z)}]+logp(x)  \\
 左边括号中的为ELBO = -variational ~free ~energy \\
  = E_{q(z)}[log[p(x|z)] + log( \frac{p(z)} {q(z)} ] \\
- = E_{q(z)}[log[p(x|z)]  - KL(q(z)||p(z)) ]
+ = E_{q(z)}[log[p(x|z)]] - KL(q(z)||p(z)) 
  >=左边项
 $$
 2 这里的假设是z模型中的后验分布和z实际的先验分布是接近的，(最后一项)
 $$
-min_{q(z|x)} KL(q(z) ||p(z|x) ) =E_{q(z)}[log\frac{q(z)\cdot p(x)}{p(z|x)\cdot p(x)}] \\
+min_{q(z|x)} KL(q(z|x) ||p(z|x) ) =E_{q(z|x)}[log\frac{q(z|x)\cdot p(x)}{p(z|x)\cdot p(x)}] \\
  = E_{q(z|x)}[log\frac{q(z|x) }{p(x|z)\cdot p(z)} + logp(x)]   \\
  = E_{q(z|x)}[ -logp(x|z) + log\frac{q(z|x) }{p(z)}]+logp(x)  \\
 左边括号中的为ELBO = -variational ~free ~energy \\
  = E_{q(z|x)}[log[p(x|z)] + log( \frac{p(z)} {q(z|x)} ] \\
- = E_{q(z|x)}[log[p(x|z)]  - KL(q(z|x)||p(z)) ]
+ = E_{q(z|x)}[log[p(x|z)]]  - KL(q(z|x)||p(z)) 
  >=左边项
 $$
 
@@ -36,3 +36,4 @@ $ p(z)$ : z的实际分布。
  模型的优化就是去优化$\theta, \phi$
 
 采样技巧：重参数化 -- 假设z的后验分布满足高斯分布，使用N(0,1)来采样$zz$，对$q_{\theta}(z|x)$ 预测的( $\mu$, $\sigma$) 进行重参数化便于反传训练，即$z_{sample} = \mu+zz*\sigma$   
+[gitee](https://gitee.com/ioou/vaeelbo)
