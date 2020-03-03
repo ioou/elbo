@@ -37,3 +37,4 @@ $ p(z)$ : z的实际分布。
 
 采样技巧：重参数化 -- 假设z的后验分布满足高斯分布，使用N(0,1)来采样$zz$，对$q_{\theta}(z|x)$ 预测的( $\mu$, $\sigma$) 进行重参数化便于反传训练，即$z_{sample} = \mu+zz*\sigma$   
 [gitee](https://gitee.com/ioou/vaeelbo)
+http://latex.codecogs.com/index.php
