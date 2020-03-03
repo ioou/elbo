@@ -1,5 +1,5 @@
-拷到markdown看。
-#elbo
+[gitee]https://gitee.com/ioou/vaeelbo
+# elbo
 用模型预测的z的后验分布去近似实际的后验分布。两个版本都涉及到z的先验后验相似的问题。
 
 1 原始版本 micheal jordan，这里的生硬的假设是，z的实际后验分布和x无关且各个变量之间独立。
